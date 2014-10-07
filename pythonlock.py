@@ -11,7 +11,7 @@ object fall out of scope or (preferred) call the "release()" method:
     lock = jlock.lock('/dev/shm/mylockfile', retries=100, do_raise=True)
     if not lock.have_lock:
         print "Didn't get lock"
-        print "This shouldn't happen because do_raise=1 is set"
+        print "This shouldn't happen because do_raise is True"
         sys.exit(0)
     [do stuff]
     lock.release()
