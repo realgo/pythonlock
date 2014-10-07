@@ -2,15 +2,19 @@ Lock-file routines for Python.  This code is a cleaned up version from
 some internal tummy.com projects, called "jlock.py", but never released
 separately.  That code has been used in many projects over the years.
 
+This code is meant to be easily embedded within some other code, just
+by reading it into the other source file.  This is 50% of how I've
+used it.
+
 Examples
 --------
 
-Just select a lock-file name, and create a jlock instance using that
+Just select a lock-file name, and create a "lock" instance using that
 name any any parameters you want to override.  Then either let the
 object fall out of scope or (preferred) call the "release()" method:
 
-    import jlock
-    lock = jlock.lock('/dev/shm/mylockfile', retries=100, do_raise=True)
+    import pythonlock
+    lock = pythonlock.lock('/dev/shm/mylockfile', retries=100, do_raise=True)
     if not lock.have_lock:
         print "Didn't get lock"
         print "This shouldn't happen because do_raise is True"

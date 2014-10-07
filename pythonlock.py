@@ -3,12 +3,12 @@
 #  Generic locking routines for Python
 
 '''
-Just select a lock-file name, and create a jlock instance using that
+Just select a lock-file name, and create a "lock" instance using that
 name any any parameters you want to override.  Then either let the
 object fall out of scope or (preferred) call the "release()" method:
 
-    import jlock
-    lock = jlock.lock('/dev/shm/mylockfile', retries=100, do_raise=True)
+    import pythonlock
+    lock = pythonlock.lock('/dev/shm/mylockfile', retries=100, do_raise=True)
     if not lock.have_lock:
         print "Didn't get lock"
         print "This shouldn't happen because do_raise is True"
